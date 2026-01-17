@@ -1,0 +1,21 @@
+import React from 'react';
+import '../styles/Hero.css';
+
+function Hero() {
+  return (
+    <section className="hero" id="home">
+      <div className="hero-content container">
+        <div>
+          <h1>🚀 Get Your Business Online — Zero Development Cost</h1>
+          <p>We provide <strong>professional websites for all business needs</strong> — fast, modern, and affordable.</p>
+          <div className="hero-buttons">
+            <a href="#contact" className="btn btn-primary">Contact Now</a>
+            <a href="#offer" className="btn btn-secondary">See Offer</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default Hero;

@@ -1,0 +1,106 @@
+/* Design tokens */
+:root {
+  --bg: #0b0f1a;
+  --bg-alt: #0f1524;
+  --text: #e6e9f2;
+  --muted: #a7b0c0;
+  --primary: #6c5ce7;
+  --primary-600: #5b4bd1;
+  --accent: #20c997;
+  --card: #121a2f;
+  --border: rgba(255,255,255,0.08);
+  --shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+/* Utility */
+.container {
+  width: min(1120px, 92%);
+  margin-inline: auto;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 22px;
+  border-radius: 10px;
+  font-weight: 600;
+  letter-spacing: .2px;
+  border: 1px solid transparent;
+  transition: all .2s ease;
+  cursor: pointer;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary), #7b73f0);
+  color: white;
+  box-shadow: 0 8px 20px rgba(108,92,231,.3);
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(108,92,231,.38); }
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border-color: rgba(255,255,255,0.16);
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.06); }
+
+/* Hero */
+.hero {
+  position: relative;
+  background: radial-gradient(1200px 600px at 20% -10%, rgba(108,92,231,.25), transparent 60%),
+              radial-gradient(1000px 500px at 90% 0%, rgba(32,201,151,.18), transparent 50%),
+              linear-gradient(180deg, var(--bg), var(--bg-alt));
+  color: var(--text);
+  overflow: clip;
+}
+.hero::after { /* subtle grid */
+  content: "";
+  pointer-events: none;
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(closest-side, rgba(0,0,0,.5), transparent 70%);
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  min-height: 80vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 96px 0 72px;
+}
+.hero-content h1 {
+  font-size: clamp(2rem, 4.5vw + 1rem, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: .2px;
+  margin: 0 0 16px;
+}
+.hero-content p {
+  color: var(--muted);
+  font-size: clamp(1rem, .6vw + .8rem, 1.125rem);
+  max-width: 760px;
+  margin: 0 auto 28px;
+}
+.hero-buttons {
+  display: inline-flex;
+  gap: 12px;
+}
+
+/* Cards, sections (to reuse later) */
+.section {
+  background: var(--bg-alt);
+  color: var(--text);
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .btn { height: 44px; padding: 0 16px; }
+  .hero-content { padding: 80px 0 56px; }
+}
