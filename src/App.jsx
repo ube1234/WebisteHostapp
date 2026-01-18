@@ -2,9 +2,13 @@ import { useEffect, useState } from 'react'
 import Header from './components/Header.jsx'
 import Hero from './components/Hero.jsx'
 import './App.css'
+import { websiteHubApi } from './services/apiClient.js'
 
 function App() {
   const [daysLeft, setDaysLeft] = useState(0)
+  const [employeesPreview, setEmployeesPreview] = useState(null)
+  const [loadingEmployees, setLoadingEmployees] = useState(false)
+  const [employeesError, setEmployeesError] = useState('')
 
   useEffect(() => {
     const KEY = 'offerDeadline'
@@ -44,6 +48,33 @@ function App() {
               <article className="card service"><h3>✅ Pay Only for Hosting</h3><p>Plans starting <strong>below ₹399/month</strong>.</p></article>
               <article className="card service"><h3>✅ Responsive & Mobile-friendly</h3><p>Looks great on phones, tablets, and desktops.</p></article>
               <article className="card service"><h3>✅ For Shops, Startups, SMBs</h3><p>Perfect for local businesses and growing brands.</p></article>
+              <article className="card service">
+                <h3>🔌 Backend Integration Demo</h3>
+                <p>Click to fetch employees from the WebsiteHub backend (GET /Employee).</p>
+                <button className="btn btn-primary" onClick={async () => {
+                  setEmployeesError('')
+                  setEmployeesPreview(null)
+                  setLoadingEmployees(true)
+                  try {
+                    const data = await websiteHubApi.get('/Employee')
+                    const arr = Array.isArray(data) ? data : (data?.data ?? data ?? [])
+                    const preview = Array.isArray(arr) ? arr.slice(0, 3) : arr
+                    setEmployeesPreview({ count: Array.isArray(arr) ? arr.length : (arr ? 1 : 0), preview })
+                  } catch (e) {
+                    setEmployeesError(`${e?.message || 'Request failed'}${e?.status ? ` (HTTP ${e.status})` : ''}`)
+                  } finally {
+                    setLoadingEmployees(false)
+                  }
+                }} disabled={loadingEmployees}>
+                  {loadingEmployees ? 'Loading…' : 'Fetch Employees'}
+                </button>
+                {employeesError && <p style={{ color: 'crimson', marginTop: '0.5rem' }}>{employeesError}</p>}
+                {employeesPreview && (
+                  <pre style={{ marginTop: '0.5rem', maxHeight: 200, overflow: 'auto' }}>
+{JSON.stringify(employeesPreview, null, 2)}
+                  </pre>
+                )}
+              </article>
             </div>
           </div>
         </section>
