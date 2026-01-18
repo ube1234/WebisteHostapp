@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="g3" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#fbc2eb"/>
+      <stop offset="100%" stop-color="#a6c1ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g3)"/>
+  <g opacity="0.35">
+    <circle cx="650" cy="480" r="140" fill="#fff"/>
+    <rect x="60" y="80" width="200" height="200" rx="24" fill="#fff"/>
+  </g>
+  <text x="50%" y="54%" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="44" font-weight="700" fill="#4b3f69">Clothing Demo</text>
+  <text x="50%" y="62%" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" fill="#4b3f69">Local placeholder image</text>
+</svg>

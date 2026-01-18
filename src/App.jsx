@@ -56,10 +56,10 @@ function App() {
             </header>
             <div className="grid gallery">
               {[
-                {title: 'Cakes Demo', img: 'https://source.unsplash.com/800x600/?cake,dessert,bakery', url: 'https://lemon-dune-06fc7a110.6.azurestaticapps.net'},
-                {title: 'Jewellery Demo', img: 'https://source.unsplash.com/800x600/?jewelry,jewellery,necklace', url: 'https://polite-wave-02da7fa10.4.azurestaticapps.net'},
-                {title: 'Clothing Demo', img: 'https://source.unsplash.com/800x600/?clothing,fashion,apparel', url: 'https://agreeable-coast-0f0315210.1.azurestaticapps.net'},
-                {title: 'Food Demo', img: 'https://source.unsplash.com/800x600/?food,restaurant,burger', url: 'https://gentle-pond-0f4714310.1.azurestaticapps.net'}
+                {title: 'Home bakers', img: '/cakes.png', url: 'https://thankful-pond-07e957610.2.azurestaticapps.net'},
+                {title: 'Earings and Bangles Collection', img: '/jewels.png', url: 'https://polite-wave-02da7fa10.4.azurestaticapps.net'},
+                {title: 'Cloth Shop', img: '/clothes.png', url: 'https://agreeable-coast-0f0315210.1.azurestaticapps.net'},
+                {title: 'Restaturant', img: '/food.png', url: 'https://gentle-pond-0f4714310.1.azurestaticapps.net'}
               ].map((item, i) => (
                 <a key={i} className="card shot" href={item.url} target="_blank" rel="noopener noreferrer">
                   <img src={item.img} alt={item.title} />
@@ -88,7 +88,7 @@ function App() {
           </div>
         </section>
 
-        <section className="section testimonials" id="testimonials">
+        {/* <section className="section testimonials" id="testimonials">
           <div className="container">
             <header className="section-head">
               <h2>What clients say</h2>
@@ -103,7 +103,7 @@ function App() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}  
 
         <section id="about" className="section about">
           <div className="container">
