@@ -9,6 +9,53 @@ function App() {
   const [employeesPreview, setEmployeesPreview] = useState(null)
   const [loadingEmployees, setLoadingEmployees] = useState(false)
   const [employeesError, setEmployeesError] = useState('')
+  const [paymentLoading, setPaymentLoading] = useState(false)
+  const [paymentError, setPaymentError] = useState('')
+
+  const handlePayment = async () => {
+    setPaymentLoading(true)
+    setPaymentError('')
+    try {
+      const order = await websiteHubApi.post('/create-razorpay-order', {
+        amount: 399,
+        currency: 'INR',
+      })
+
+      const options = {
+        key: 'YOUR_RAZORPAY_KEY_ID', // Replace with your Key ID
+        amount: order.amount,
+        currency: order.currency,
+        name: 'WebsiteHub',
+        description: 'Hosting Plan',
+        order_id: order.id,
+        handler: function (response) {
+          alert('Payment successful!');
+          console.log(response);
+          // Here you would typically verify the payment signature on your backend
+        },
+        prefill: {
+          name: 'Your Name',
+          email: 'your.email@example.com',
+          contact: '9999999999',
+        },
+        notes: {
+          address: 'Razorpay Corporate Office',
+        },
+        theme: {
+          color: '#3399cc',
+        },
+      };
+      const rzp1 = new window.Razorpay(options);
+      rzp1.on('payment.failed', function (response) {
+        setPaymentError(response.error.description);
+      });
+      rzp1.open();
+    } catch (e) {
+      setPaymentError(`${e?.message || 'Request failed'}${e?.status ? ` (HTTP ${e.status})` : ''}`)
+    } finally {
+      setPaymentLoading(false)
+    }
+  }
 
   useEffect(() => {
     const KEY = 'offerDeadline'
@@ -45,7 +92,12 @@ function App() {
               <article className="card service"><h3>✅ Website Development – 100% FREE</h3><p>Professional design and build for your business.</p></article>
               <article className="card service"><h3>✅ Customization & Maintenance – FREE</h3><p>We handle updates, fixes, and brand tweaks at no extra cost.</p></article>
               <article className="card service"><h3>✅ 30 Days FREE Hosting</h3><p>Launch and test your site without paying a rupee.</p></article>
-              <article className="card service"><h3>✅ Pay Only for Hosting</h3><p>Plans starting <strong>below ₹399/month</strong>.</p></article>
+              <article className="card service"><h3>✅ Pay Only for Hosting</h3><p>Plans starting <strong>below ₹399/month</strong>.</p>
+              <button className="btn btn-primary" onClick={handlePayment} disabled={paymentLoading}>
+                  {paymentLoading ? 'Processing…' : 'Pay Now'}
+                </button>
+                {paymentError && <p style={{ color: 'crimson', marginTop: '0.5rem' }}>{paymentError}</p>}
+              </article>
               <article className="card service"><h3>✅ Responsive & Mobile-friendly</h3><p>Looks great on phones, tablets, and desktops.</p></article>
               <article className="card service"><h3>✅ For Shops, Startups, SMBs</h3><p>Perfect for local businesses and growing brands.</p></article>
               <article className="card service">

@@ -1,0 +1,47 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.slide-in-up {
+  animation: slideInUp 0.8s ease-out forwards;
+}
+
+.slide-in-down {
+  animation: slideInDown 0.8s ease-out forwards;
+}
+
+/* Add a class to hide elements before animation */
+.animate-on-scroll {
+  opacity: 0;
+}
