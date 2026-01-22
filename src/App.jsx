@@ -93,14 +93,14 @@ function App() {
               <article className="card service"><h3>✅ Customization & Maintenance – FREE</h3><p>We handle updates, fixes, and brand tweaks at no extra cost.</p></article>
               <article className="card service"><h3>✅ 30 Days FREE Hosting</h3><p>Launch and test your site without paying a rupee.</p></article>
               <article className="card service"><h3>✅ Pay Only for Hosting</h3><p>Plans starting <strong>below ₹399/month</strong>.</p>
-              <button className="btn btn-primary" onClick={handlePayment} disabled={paymentLoading}>
+              {/* <button className="btn btn-primary" onClick={handlePayment} disabled={paymentLoading}>
                   {paymentLoading ? 'Processing…' : 'Pay Now'}
-                </button>
+                </button> */}
                 {paymentError && <p style={{ color: 'crimson', marginTop: '0.5rem' }}>{paymentError}</p>}
               </article>
               <article className="card service"><h3>✅ Responsive & Mobile-friendly</h3><p>Looks great on phones, tablets, and desktops.</p></article>
               <article className="card service"><h3>✅ For Shops, Startups, SMBs</h3><p>Perfect for local businesses and growing brands.</p></article>
-              <article className="card service">
+              {/* <article className="card service">
                 <h3>🔌 Backend Integration Demo</h3>
                 <p>Click to fetch employees from the WebsiteHub backend (GET /Employee).</p>
                 <button className="btn btn-primary" onClick={async () => {
@@ -126,7 +126,7 @@ function App() {
 {JSON.stringify(employeesPreview, null, 2)}
                   </pre>
                 )}
-              </article>
+              </article> */}
             </div>
           </div>
         </section>
@@ -171,22 +171,34 @@ function App() {
           </div>
         </section>
 
-        {/* <section className="section testimonials" id="testimonials">
+        <section className="section testimonials" id="testimonials">
           <div className="container">
             <header className="section-head">
               <h2>What clients say</h2>
               <p>Swap these with real testimonials when available.</p>
             </header>
             <div className="grid">
-              {[1,2,3].map((i) => (
-                <blockquote key={i} className="card quote">
-                  <p>“Outstanding work. The new website boosted our leads within weeks.”</p>
-                  <footer>— Client {i}, Founder</footer>
+              
+                <blockquote  className="card quote">
+                  <p>“The website was delivered on time and exactly as discussed. Clean design, fast loading, and mobile-friendly. We started receiving genuine inquiries within the first month.”</p>
+                  <footer>-Ramesh K., Small Business Owner</footer>
                 </blockquote>
-              ))}
+                <blockquote  className="card quote">
+                  <p>“Very professional approach. Requirements were clearly understood, and revisions were handled without delay. The final website looks modern and works smoothly. Highly recommend!”</p>
+                  <footer>-Anitha M., Founder</footer>
+                </blockquote>
+                <blockquote  className="card quote">
+                  <p>“Communication was clear throughout the project. From design to deployment, everything was handled well. I would definitely recommend this service for startups.”</p>
+                  <footer>— Vikram R., Startup Founder</footer>
+                </blockquote>
+                <blockquote  className="card quote">
+                  <p>“What we appreciated most was the attention to detail. The site is simple, professional, and easy for our customers to navigate.”</p>
+                  <footer>— Priya S., Service Provider</footer>
+                </blockquote>
+              
             </div>
           </div>
-        </section> */}  
+        </section>  
 
         <section id="about" className="section about">
           <div className="container">
@@ -224,7 +236,7 @@ function App() {
 
       <footer className="footer">
         <div className="container">
-          <p>© {new Date().getFullYear()} WebDev Pro — High-quality websites for growing businesses.</p>
+          <p>© {new Date().getFullYear()} DidYouGetYourSite — High-quality websites for growing businesses.</p>
         </div>
       </footer>
     </>

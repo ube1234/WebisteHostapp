@@ -9,7 +9,7 @@ function Header() {
       <div className="container">
         <div className="header-content">
           <div className="logo">
-            <h1>WebDev Pro</h1>
+            <h1>DidYouGetYourSite</h1>
           </div>
           <nav className={`nav ${mobileMenuOpen ? 'active' : ''}`}>
             <a href="#home">Home</a>

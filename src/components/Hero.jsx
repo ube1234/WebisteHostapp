@@ -12,7 +12,7 @@ function Hero() {
           <div className="hero-buttons">
             <a href="#contact" className="btn btn-primary">Contact Now</a>
             <a href="#offer" className="btn btn-secondary">See Offer</a>
-            <RazorpayButton>Pay ₹399</RazorpayButton>
+         {/* -   <RazorpayButton>Pay ₹399</RazorpayButton> */}
           </div>
         </div>
       </div>
