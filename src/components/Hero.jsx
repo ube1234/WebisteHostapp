@@ -10,7 +10,7 @@ function Hero() {
           <h1>🚀 Get Your Business Online — Zero Development Cost</h1>
           <p>We provide <strong>professional websites for all business needs</strong> — fast, modern, and affordable.</p>
           <div className="hero-buttons">
-            <a href="#contact" className="btn btn-primary">Contact Now</a>
+            <a href="#contact" className="btn btn-primary">Contact Lenin</a>
             <a href="#offer" className="btn btn-secondary">See Offer</a>
          {/* -   <RazorpayButton>Pay ₹399</RazorpayButton> */}
           </div>
