@@ -139,6 +139,7 @@ function App() {
             </header>
             <div className="grid gallery">
               {[
+                {title: 'Construction and Builders', img: '/Brick.png', url: 'https://gray-field-078c7d110.6.azurestaticapps.net/'},
                 {title: 'Home bakers', img: '/cakes.png', url: 'https://thankful-pond-07e957610.2.azurestaticapps.net'},
                 {title: 'Earings and Bangles Collection', img: '/jewels.png', url: 'https://polite-wave-02da7fa10.4.azurestaticapps.net'},
                 {title: 'Cloth Shop', img: '/clothes.png', url: 'https://agreeable-coast-0f0315210.1.azurestaticapps.net'},
